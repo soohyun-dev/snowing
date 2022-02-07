@@ -1,0 +1,100 @@
+body{
+  height: 100vh; /* 웹브라우저의 높이와 일치*/
+  background: radial-gradient(ellipse at bottom, #1b2735 0%, #000000 100%); /* 원형의 중심위치를 나타내는 값, 시작위치, 종료위치 색상값 퍼져나감*/
+  overflow: hidden; /* 넘어가는 범위 hidden*/
+
+}  
+
+.snow{
+  width: 7px;
+  height: 7px;
+  opacity: 0;
+  background: #fff;
+  border-radius: 50%; /*원처럼*/
+  animation: snow 10s linear infinite;
+}
+
+
+/* 단조롭게 내리는거 조정 */
+.snow:nth-of-type(2n){
+  width: 4px;
+  height: 4px;
+  animation-duration: 12s;
+}
+
+.snow:nth-of-type(2n+1){
+  width: 1px;
+  height: 1px;
+  animation-duration: 10s;
+}
+.snow:nth-of-type(5n){
+  width: 3px;
+  height: 3px;
+  animation-duration: 10s;
+  animation-delay: 7s;
+}
+.snow:nth-of-type(9n){
+  animation-duration: 9s;
+  animation-delay: 3s;
+}
+.snow:nth-of-type(7n){
+  width: 4px;
+  height: 4px;
+  animation-duration: 13s;
+  animation-delay: 9s;
+}
+.snow:nth-of-type(13n){
+  width: 5px;
+  height: 5px;
+  animation-duration: 10s;
+  animation-delay: 6s;
+}
+
+
+/* 눈 내리는 방향,투명도 설정 */
+@keyframes snow {
+  0% {
+    opacity: 0;
+    transform: translateY(0);
+  }
+  20% {
+    opacity: 1;
+    transform: translate(-15px, 20vh);  /* x,y동시적용*/
+  }
+  40% {
+    opacity: 1;
+    transform: translate(15px, 40vh);  /* x,y동시적용*/
+  }
+  60% {
+    opacity: 1;
+    transform: translate(-15px, 60vh);  /* x,y동시적용*/
+  }
+  80% {
+    opacity: 1;
+    transform: translate(0, 80vh);  /* x,y동시적용*/
+  }
+  100%{
+    opacity: 1;   /* 애니메이션 처음엔 안보이다가 보이기 시작*/
+    transform: translateY(100vh);
+  }
+};
+
+
+section {
+  position: relative;
+  width: 100%;
+  height: 100vh;
+  padding: 20px;
+}
+section img{
+  position: absolute;
+  top:0;
+  left:0;
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  opacity: 0.8;
+}
+section img#moon{
+  mix-blend-mode: screen
+}

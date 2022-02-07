@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="ko">
+  <head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Snow</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+  <body>
+    <div class="snow"></div>
+    <script>
+      function createSnow(){
+        const el = document.createElement("div");  
+        el.classList.add('snow'); /* 객체 add메소드 사용 snow 적용*/
+        el.style.marginLeft = randomPostion() + 'px';
+        document.body.appendChild(el); /*자신의 요소로서 추가*/
+      }
+      function randomPostion(){
+        return Math.floor(Math.random() * window.innerWidth); /* 화면 내의 크기안에서 랜덤으로 나옴 */
+      }
+      for (let i=0; i<500; i++){
+        createSnow();
+      }
+    </script>
+
+    <section>
+      <img src="moon2.jpg" id="moon">
+    </section>
+  </body>
+</html>
